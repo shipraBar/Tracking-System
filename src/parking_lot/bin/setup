@@ -1,0 +1,16 @@
+# Downloads junit-4.12.jar
+wget "https://github.com/junit-team/junit4/releases/download/r4.12/junit-4.12.jar"
+
+# Downloads hamcrest-core-1.3.jar
+wget -O hamcrest-core-1.3.jar "https://search.maven.org/remotecontent?filepath=org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"
+
+# Compile Source code
+javac TicketingSystem.java  RunCommands.java ParkingSlot.java 
+
+# Compile test classes
+javac -cp junit-4.12.jar -d /home/abhishek/Desktop/demoProject2/src/parking_lot/bin /home/abhishek/Desktop/demoProject2/src/functional_spec/spec/TicketingSystemTest.java TicketingSystem.java RunCommands.java ParkingSlot.java  
+javac -cp junit-4.12.jar -d /home/abhishek/Desktop/demoProject2/src/parking_lot/bin /home/abhishek/Desktop/demoProject2/src/functional_spec/spec/RunCommandsTest.java TicketingSystem.java RunCommands.java ParkingSlot.java
+
+# Run Test Classes 
+java -cp junit-4.12.jar:hamcrest-core-1.3.jar:. org.junit.runner.JUnitCore TicketingSystemTest 
+java -cp junit-4.12.jar:hamcrest-core-1.3.jar:. org.junit.runner.JUnitCore RunCommandsTest
